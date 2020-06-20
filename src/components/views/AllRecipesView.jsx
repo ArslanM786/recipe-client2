@@ -5,7 +5,7 @@ const AllRecipesView = (props) => {
   return (
     <div className="all-recipes">
       <h1>
-        <button onClick={handleLogout}>Logout</button>
+        <button onClick={handleLogout}>Submit</button>
       </h1>
       {props.recipes.map((recipe) => (
         <div key={props.recipe.id}>

@@ -20,15 +20,13 @@ export const fetchAllRecipesThunk = (searchTerm) => (dispatch) => {
   return axios
     .get(RECIPE_API_BASE, {
       params: {
-        q: "${searchTerm}",
-        apiKey: API_KEY,
+        query: searchTerm,
+        apiKey: "90a1a19233a64b5f90c64e1c0257e7e6",
       },
     })
-    .then((res) => res.data.hits)
-    .then((recipeList) => {
-      const recipes = recipeList.map((r) => r.recipe);
-      dispatch(fetchAllRecipes(recipes));
-    })
+
+    .then((res) => res.data)
+    .then((data) => console.log(data.results))
     .catch((err) => console.log(err));
 };
 
