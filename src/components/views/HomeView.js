@@ -5,7 +5,7 @@ const HomeView = (props) => {
   return (
     <home>
       <div className="home">
-        <h1>Welcome to Recipe Cook Book</h1>
+        <h1>Welcome to InstaRecipe!</h1>
       </div>
     </home>
   );

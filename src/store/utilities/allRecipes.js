@@ -13,30 +13,46 @@ const fetchAllRecipes = (recipes) => {
 };
 
 const API_KEY = process.env.REACT_APP_SPOONACULAR_API;
-// const RECIPE_API_BASE = "https://api.spoonacular.com/recipes/search";
+const RECIPE_API_BASE = "https://api.spoonacular.com/recipes/search";
+
 //thunk creators
-export const fetchAllRecipesThunk = (
-  searchTerm = "cheese",
-  number = 5,
-  includeNutrition = true
-) => (dispatch) => {
-  return (
-    axios
-      .get(
-        `https://api.spoonacular.com/recipes/search?query=${searchTerm}&number=${number}&apiKey=${API_KEY}&includeNutrition=${includeNutrition}`
-      )
-      //    .get(RECIPE_API_BASE, {
-      //    query: {
-      //    apiKey: API_KEY,
-      //  query: searchTerm,
-      //   includeNutrition,
-      //  },
-      //  })
-      .then((response) => response.data.results)
-      .then((recipes) => dispatch(fetchAllRecipes(recipes)))
-      .catch((err) => console.log(err))
-  );
+export const fetchAllRecipesThunk = (searchTerm) => (dispatch) => {
+  return axios
+    .get(RECIPE_API_BASE, {
+      params: {
+        q: "${searchTerm}",
+        apiKey: API_KEY,
+      },
+    })
+    .then((res) => res.data.hits)
+    .then((recipeList) => {
+      const recipes = recipeList.map((r) => r.recipe);
+      dispatch(fetchAllRecipes(recipes));
+    })
+    .catch((err) => console.log(err));
 };
+
+// searchTerm = "cheese",
+//   number = 5,
+//   includeNutrition = true
+// ) => (dispatch) => {
+//   return (
+//     axios
+//       .get(
+//         `https://api.spoonacular.com/recipes/search?query=${searchTerm}&number=${number}&apiKey=${API_KEY}&includeNutrition=${includeNutrition}`
+//       )
+//       //    .get(RECIPE_API_BASE, {
+//       //    query: {
+//       //    apiKey: API_KEY,
+//       //  query: searchTerm,
+//       //   includeNutrition,
+//       //  },
+//       //  })
+//       .then((response) => response.data.results)
+//       .then((recipes) => dispatch(fetchAllRecipes(recipes)))
+//       .catch((err) => console.log(err))
+//   );
+// };
 
 //reducer
 const reducer = (state = [], action) => {
