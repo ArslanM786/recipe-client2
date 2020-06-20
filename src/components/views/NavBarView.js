@@ -4,25 +4,24 @@ import { Link } from "react-router-dom";
 
 const NavBarView = (props) => {
   return (
-    <nav>
+    <nav classNam="nav mb-3">
       <h3>Logo</h3>
-      <ul className="nav-links">
-        <Link to="/home">
-          <l1>Home</l1>
-        </Link>
-        <Link to="/login">
-          <l1>Login</l1>
-        </Link>
-        <Link to="/signup">
-          <l1>Signup</l1>
-        </Link>
-        <Link to="/recipes">
-          <l1>Recipes</l1>
-        </Link>
-        <Link to="/reviews">
-          <l1>Reviews</l1>
-        </Link>
-      </ul>
+
+      <Link to="/" className="nav-link">
+        Home
+      </Link>
+      <Link to="/login" className="nav-link">
+        <l1>Login</l1>
+      </Link>
+      <Link to="/signup" className="nav-link">
+        <l1>Signup</l1>
+      </Link>
+      <Link to="/recipes" className="nav-link">
+        <l1>Recipes</l1>
+      </Link>
+      <Link to="/reviews" className="nav-link">
+        <l1>Reviews</l1>
+      </Link>
     </nav>
   );
 };
