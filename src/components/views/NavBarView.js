@@ -8,7 +8,7 @@ const NavBarView = (props) => {
       <h3>Logo</h3>
 
       <Link to="/" className="nav-link">
-        Home
+        <l1>Home</l1>
       </Link>
       <Link to="/login" className="nav-link">
         <l1>Login</l1>
@@ -21,6 +21,9 @@ const NavBarView = (props) => {
       </Link>
       <Link to="/reviews" className="nav-link">
         <l1>Reviews</l1>
+      </Link>
+      <Link to="/profile" className="nav-link">
+        <l1>Profile</l1>
       </Link>
     </nav>
   );

@@ -18,6 +18,10 @@ class SearchBar extends Component {
           placeholder="Search Recipe"
           onChange={(event) => this.onInputChange(event.target.value)}
         />
+        <button onChange={(event) => this.onInputChange(event.target.value)}>
+          {" "}
+          Search{" "}
+        </button>
       </div>
     );
   }

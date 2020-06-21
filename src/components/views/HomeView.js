@@ -4,7 +4,7 @@ import "./styles/HomeView.css";
 const HomeView = (props) => {
   return (
     <home>
-      <div className="home">
+      <div>
         <h1>Welcome to InstaRecipe!</h1>
       </div>
     </home>

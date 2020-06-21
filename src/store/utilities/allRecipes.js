@@ -21,14 +21,17 @@ export const fetchAllRecipesThunk = (searchTerm) => (dispatch) => {
     .get(RECIPE_API_BASE, {
       params: {
         query: searchTerm,
-        apiKey: "90a1a19233a64b5f90c64e1c0257e7e6",
+        apiKey: "8c1e6e74f9eb44f6b8f43b81ef41f597",
       },
     })
-
-    .then((res) => res.data)
-    .then((data) => console.log(data.results))
+    .then((response) => response.data.results)
+    .then((recipes) => dispatch(fetchAllRecipes(recipes)))
     .catch((err) => console.log(err));
 };
+
+// .then((res) => res.data)
+//     .then((data) => console.log(data.results))
+//     .catch((err) => console.log(err));
 
 // searchTerm = "cheese",
 //   number = 5,
